@@ -20,11 +20,6 @@ const Header = () => {
     }
   };
 
-  // const data = async ()=> {
-  //   return await GetMenuData();
-  // };
-  console.log(data);
-
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
   const navbarToggleHandler = () => {
@@ -41,12 +36,6 @@ const Header = () => {
     }
   };
   useEffect(() => {
-    // fetch('https://backend.smartwork.3i.com.vn/HomePage/GetMainMenu')
-    // .then((res) => res.json())
-    // .then((data) => {
-
-    //   setData(data)
-    // })
     setdata()
     window.addEventListener("scroll", handleStickyNavbar);
   }, []);

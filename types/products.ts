@@ -3,5 +3,3 @@ export type Products = {
   image: JSX.Element;
   title: string;
 };
-
-

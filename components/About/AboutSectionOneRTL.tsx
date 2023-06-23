@@ -12,7 +12,7 @@ const checkIcon = (
 const AboutSectionOneRTL = () => {
   const List = ({ text }) => (
     <p className="mb-5 flex items-center text-lg font-medium text-body-color">
-      <span className="mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
+      <span className="mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md bg-[green] bg-opacity-10 text-primary">
         {checkIcon}
       </span>
       {text}
@@ -20,7 +20,7 @@ const AboutSectionOneRTL = () => {
   );
 
   return (
-    <section id="about" className="pt-16 md:pt-20 lg:pt-28">
+    <section id="about" className="pt-16 md:pt-20 lg:pt-28 bg-gradient-[linear-gradient(45deg, #53b700, #00c1bf)]">
       <div className="container">
         <div className="border-b border-body-color/[.15] pb-16 dark:border-white/[.15] md:pb-20 lg:pb-28">
           <div className="-mx-4 flex flex-wrap items-center">
@@ -29,12 +29,13 @@ const AboutSectionOneRTL = () => {
                 className="wow fadeInUp relative mx-auto aspect-[25/24] max-w-[500px] lg:ml-0"
                 data-wow-delay=".2s"
               >
-                <Image
+                {/* <Image
                   src="/images/about/about-image-2.svg"
                   alt="about-image"
                   fill
                   className="mx-auto max-w-full lg:mr-0"
-                />
+                /> */}
+                <svg className="text-[266px]" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M332.8 320h38.4c6.4 0 12.8-6.4 12.8-12.8V172.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v134.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V76.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v230.4c0 6.4 6.4 12.8 12.8 12.8zm-288 0h38.4c6.4 0 12.8-6.4 12.8-12.8v-70.4c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v70.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V108.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v198.4c0 6.4 6.4 12.8 12.8 12.8zM496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"></path></svg>
               </div>
             </div>
 
@@ -49,7 +50,7 @@ const AboutSectionOneRTL = () => {
               <div className="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                   <Link
                     href="#"
-                    className="rounded-md bg-primary py-4 px-8 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
+                    className="rounded-md bg-[green] py-4 px-8 text-base font-semibold text-white duration-300 ease-in-out hover:bg-[green]/80"
                   >
                     Tìm hiểu ngay
                   </Link>

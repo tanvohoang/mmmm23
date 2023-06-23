@@ -5,15 +5,9 @@ import { useEffect, useState } from "react";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
 import { GetMenuData } from "../../app/apis/GetDataHome";
-import { useQuery } from "@tanstack/react-query";
 import { handleItemNavBar } from "../../app/utils/util";
 
 const Header = () => {
-  // const { data } = useQuery({
-  //   queryKey: ["List_Menu"],
-  //   queryFn: () => GetMenuData(),
-  // });
-
   const [data,setData]=useState([])
 
 

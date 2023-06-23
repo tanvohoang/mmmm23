@@ -1,7 +1,7 @@
 const NewsLatterBox = () => {
   return (
     <div
-      className="wow fadeInUp relative z-10 rounded-md bg-primary/[3%] p-8 dark:bg-primary/10 sm:p-11 lg:p-8 xl:p-11"
+      className="wow fadeInUp relative z-10 rounded-md bg-[green]/[3%] p-8 dark:bg-[green]/10 sm:p-11 lg:p-8 xl:p-11"
       data-wow-delay=".2s"
     >
       <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
@@ -26,7 +26,7 @@ const NewsLatterBox = () => {
         <input
           type="submit"
           value="Subscribe"
-          className="duration-80 mb-4 w-full cursor-pointer rounded-md border border-transparent bg-primary py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
+          className="duration-80 mb-4 w-full cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
         />
         <p className="text-center text-base font-medium leading-relaxed text-body-color">
           Đảm bảo không có thư rác, vì vậy vui lòng không gửi bất kỳ thư rác nào.

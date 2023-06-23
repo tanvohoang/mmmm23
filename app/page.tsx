@@ -1,6 +1,6 @@
 import AboutSectionOne from "@/components/About/AboutSectionOne";
 import AboutSectionOneRTL from "@/components/About/AboutSectionOneRTL";
-import Services from "@/components/Services";
+import Products from "@/components/Products";
 import Blog from "@/components/Blog";
 import Brands from "@/components/Brands";
 import ScrollUp from "@/components/Common/ScrollUp";
@@ -11,7 +11,7 @@ import Hero from "@/components/Hero";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
-import { Inter } from "@next/font/google";
+import { Montserrat } from "@next/font/google";
 import {  ResolvingMetadata  ,type Metadata} from 'next';
 import Logo3i from'../public/images/logo/logo.png'
 
@@ -20,18 +20,15 @@ type Props = {
   searchParams: { [key: string]: string | string[] | undefined }
 }
 
-const inter = Inter({ subsets: ["latin"] });
+const fontBase = Montserrat({ subsets: ["latin"] });
 
 export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const id = params.id
- 
-
- 
   const previousImages = (await parent).openGraph?.images || []
- 
+
   return {
     openGraph: {
       images: [Logo3i.src, ...previousImages],
@@ -47,13 +44,13 @@ export default function Home() {
       <AboutSectionOne />
       <AboutSectionOneRTL />
       {/* <AboutSectionTwo /> */}
-      <Services />
+      <Products />
       <Features />
-      <Video />
-      <Brands />
+      {/* <Video /> */}
+      {/* <Brands /> */}
       {/* <Testimonials /> */}
-      <Pricing />
-      <Blog />
+      {/* <Pricing /> */}
+      {/* <Blog /> */}
       <Contact />
       <LocationSystem />
     </>

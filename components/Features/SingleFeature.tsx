@@ -4,14 +4,10 @@ import { json } from "stream/consumers";
 import Image from "next/image";
 
 const SingleFeature = ({ feature }: any) => {
-  // const {  title,multiple_language } = feature;
-  // console.log(JSON.parse( multiple_language))
-
-  console.log(feature);
   return (
     <div className="w-full">
       <div className="wow fadeInUp" data-wow-delay=".15s">
-        <div className="mb-10 flex h-[70px] w-[70px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
+        <div className="mb-10 flex h-[70px] w-[70px] items-center justify-center rounded-md bg-[green] bg-opacity-10 text-primary">
           <Image
             alt=""
             src={feature.img}

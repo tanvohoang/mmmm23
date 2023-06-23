@@ -10,7 +10,7 @@ const checkIcon = (
 const AboutSectionOne = () => {
   const List = ({ text }) => (
     <p className="mb-5 flex items-center text-lg font-medium text-body-color">
-      <span className="mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md bg-primary bg-opacity-10 text-primary">
+      <span className="mr-4 flex h-[30px] w-[30px] items-center justify-center rounded-md bg-[green] bg-opacity-10 text-primary">
         {checkIcon}
       </span>
       {text}
@@ -59,9 +59,10 @@ const AboutSectionOne = () => {
                 data-wow-delay=".2s"
               >
                 <Image
-                  src="/images/about/about-image.svg"
+                  src="/images/about/cta.png"
                   alt="about-image"
-                  fill
+                  width={500}
+                  height={400}
                   className="mx-auto max-w-full lg:mr-0"
                 />
               </div>

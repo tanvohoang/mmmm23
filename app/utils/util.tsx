@@ -10,3 +10,8 @@ export const handleItemNavBar=(value): string=>{
 export const getCurrentYear = () => {
   return new Date().getFullYear();
 };
+
+
+export const getImg=(value:string)=>{
+    return `https://backend.smartwork.3i.com.vn ${value}`
+}

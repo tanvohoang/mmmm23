@@ -5,6 +5,7 @@ import Head from "next/head";
 import AboutSectionOne from "@/components/About/AboutSectionOne";
 import AboutSectionTwo from "@/components/About/AboutSectionTwo";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import {getImg} from'../../utils/util'
 
 type Props = {
   params: { id: string };
@@ -17,13 +18,15 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const id = params.id;
 
-//   const product = await GetAbouct(Number(id));
+  const product = await GetAbout(Number(id));
 
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
+    title:product?.data?.title,
+    description:product?.data?.short_content,
     openGraph: {
-      images: [`nnnnn`, ...previousImages],
+      images: [getImg(product?.data?.gallery), ...previousImages],
     },
   };
 }

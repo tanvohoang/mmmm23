@@ -5,6 +5,8 @@ import AboutSectionOne from "@/components/About/AboutSectionOne";
 import AboutSectionTwo from "@/components/About/AboutSectionTwo";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import React from "react";
+import {getImg} from '../../utils/util'
+import Contact from "@/components/Contact";
 
 type Props = {
   params: { id: string };
@@ -17,13 +19,15 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const id = params.id;
 
-  //   const product = await GetAbout(Number(id));
+    const product = await GetAbout(Number(id));
 
   const previousImages = (await parent).openGraph?.images || [];
 
   return {
+    title:product?.data?.title,
+    description:product?.data?.short_content,
     openGraph: {
-      images: [`nnnnn`, ...previousImages],
+      images: [getImg(product?.data?.gallery), ...previousImages],
     },
   };
 }
@@ -36,13 +40,14 @@ export default async function page({ params, searchParams }: Props) {
         <title>okkk</title>
         <meta>item okk</meta>
       </Head>
-      <section className="overflow-hidden pt-[80px] pb-[120px]">
+      <section className="overflow-hidden pt-[80px]">
           <Breadcrumb
             pageName={data.data.title}
             renderHTML={data.data.content}
           
           />
       </section>
+      <Contact />
     </>
   );
 }

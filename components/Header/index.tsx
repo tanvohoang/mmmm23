@@ -8,8 +8,7 @@ import { GetMenuData } from "../../app/apis/GetDataHome";
 import { handleItemNavBar } from "../../app/utils/util";
 
 const Header = () => {
-  const [data,setData]=useState([])
-
+  const [data, setData] = useState([]);
 
   const setdata = async () => {
     try {
@@ -121,34 +120,42 @@ const Header = () => {
                       <li key={menuItem.id} className="group relative">
                         {menuItem.title ? (
                           <>
-                            <Link
-                              href={`/${handleItemNavBar(
-                                menuItem.multiple_language
-                              )}`}
-                              className={`flex py-2 text-base text-dark group-hover:opacity-70 dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0`}
-                            >
-                              {menuItem.title}
-                            </Link>
+                            {menuItem?.children.length > 0 ? (
+                              <p
+                                className={`flex py-2 text-base text-dark group-hover:opacity-70 dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0`}
+                              >
+                                {menuItem.title}
+                              </p>
+                            ) : (
+                              <Link
+                                href={`/${handleItemNavBar(
+                                  menuItem.multiple_language
+                                )}`}
+                                className={`flex py-2 text-base text-dark group-hover:opacity-70 dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 pointer`}
+                              >
+                                {menuItem.title}
+                              </Link>
+                            )}
 
-                            {
-                              menuItem?.children.length >0 &&
-                            <div
-                              className={`submenu relative top-full left-0 rounded-md bg-white transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full ${
-                                openIndex === index ? "block" : "hidden"
-                              }`}
-                            >
-                              { menuItem?.children.map((submenuItem) => (
-                                <Link
-                                  href={`${menuItem.title}/${ String(submenuItem.id)}`}
-                                  key={submenuItem.id}
-                                  className="block rounded py-2.5 text-sm text-dark hover:opacity-70 dark:text-white lg:px-3"
-                                >
-                                  {submenuItem.title}
-                                </Link>
-                              ))}
-                            </div>
-                            }
-
+                            {menuItem?.children.length > 0 && (
+                              <div
+                                className={`submenu relative top-full left-0 rounded-md bg-white transition-[top] duration-300 group-hover:opacity-100 dark:bg-dark lg:invisible lg:absolute lg:top-[110%] lg:block lg:w-[250px] lg:p-4 lg:opacity-0 lg:shadow-lg lg:group-hover:visible lg:group-hover:top-full ${
+                                  openIndex === index ? "block" : "hidden"
+                                }`}
+                              >
+                                {menuItem?.children.map((submenuItem) => (
+                                  <Link
+                                    href={`/${handleItemNavBar(
+                                      menuItem.multiple_language
+                                    )}/${submenuItem.first_id === -1 ?String(submenuItem.id): String(submenuItem.first_id)}`}
+                                    key={submenuItem.id}
+                                    className="block rounded py-2.5 text-sm text-dark hover:opacity-70 dark:text-white lg:px-3"
+                                  >
+                                    {submenuItem.title}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
                           </>
                         ) : (
                           <>
@@ -166,7 +173,6 @@ const Header = () => {
                                 </svg>
                               </span>
                             </a>
-                            
                           </>
                         )}
                       </li>

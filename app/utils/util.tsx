@@ -3,7 +3,8 @@ export const handleItemNavBar=(value): string=>{
     if( arr[0].title === 'Home'){
       return arr[0].title=''
     }
-    return arr[0].title;
+    // console.log(arr[0].title.string.replace(/\s+/g, ''))
+    return arr[0].title.replace(/\s+/g, '');
 }
 
 export const getCurrentYear = () => {

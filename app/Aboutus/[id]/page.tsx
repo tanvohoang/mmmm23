@@ -1,10 +1,10 @@
-import { GetAbout } from "../../apis/GetDataHome";
+import React from "react";
+import { GetAbouct } from "../../apis/GetDataHome";
 import { ResolvingMetadata, type Metadata } from "next";
 import Head from "next/head";
 import AboutSectionOne from "@/components/About/AboutSectionOne";
 import AboutSectionTwo from "@/components/About/AboutSectionTwo";
 import Breadcrumb from "@/components/Common/Breadcrumb";
-import React from "react";
 
 type Props = {
   params: { id: string };
@@ -17,7 +17,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const id = params.id;
 
-  //   const product = await GetAbout(Number(id));
+//   const product = await GetAbouct(Number(id));
 
   const previousImages = (await parent).openGraph?.images || [];
 
@@ -27,24 +27,21 @@ export async function generateMetadata(
     },
   };
 }
-export default async function page({ params, searchParams }: Props) {
-  const data = await GetAbout(Number(params.id));
-  console.log(data.data.content)
+
+export default async function page({params,searchParams}:Props) {
+    const data= await GetAbouct( Number( params.id))
+
+    console.log(data)
   return (
-    <>
+    <div>
       <Head>
         <title>okkk</title>
         <meta>item okk</meta>
       </Head>
-      <section className="overflow-hidden pt-[80px] pb-[120px]">
-        <div className="container">
-          <Breadcrumb
-            pageName={data.data.title}
-            renderHTML={data.data.content}
-          
-          />
-        </div>
-      </section>
-    </>
+      <Breadcrumb
+        pageName={data.data.title}
+        renderHTML={data.data.content}
+      />
+    </div>
   );
 }

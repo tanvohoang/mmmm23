@@ -37,13 +37,11 @@ type Props = {
           <meta>item okk</meta>
         </Head>
         <section className="overflow-hidden pt-[80px] pb-[120px]">
-          <div className="container">
             <Breadcrumb
               pageName={data.data.title}
               renderHTML={data.data.content}
             
             />
-          </div>
         </section>
       </>
     );

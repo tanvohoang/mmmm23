@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import SectionTitle from "../Common/SectionTitle";
+import SectionTitleFull from "../Common/SectionTitleFull";
 
 const checkIcon = (
   <svg width="16" height="13" viewBox="0 0 16 13" className="fill-current">
@@ -20,34 +20,30 @@ const AboutSectionOneRTL = () => {
   );
 
   return (
-    <section id="about" className="pt-16 md:pt-20 lg:pt-28 bg-gradient-[linear-gradient(45deg, #53b700, #00c1bf)]">
+    <section id="about" className="pt-16 md:pt-20 lg:pt-28 bg-[linear-gradient(45deg,_#53b700,_#00c1bf)] dark:bg-none">
       <div className="container">
         <div className="border-b border-body-color/[.15] pb-16 dark:border-white/[.15] md:pb-20 lg:pb-28">
           <div className="-mx-4 flex flex-wrap items-center">
-            <div className="w-full px-4 lg:w-1/2">
+            <div className="w-full px-4 lg:w-1/3">
               <div
-                className="wow fadeInUp relative mx-auto aspect-[25/24] max-w-[500px] lg:ml-0"
+                className="wow fadeInUp relative mx-auto max-w-[500px] lg:ml-0"
                 data-wow-delay=".2s"
               >
-                {/* <Image
-                  src="/images/about/about-image-2.svg"
-                  alt="about-image"
-                  fill
-                  className="mx-auto max-w-full lg:mr-0"
-                /> */}
-                <svg className="text-[266px]" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M332.8 320h38.4c6.4 0 12.8-6.4 12.8-12.8V172.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v134.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V76.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v230.4c0 6.4 6.4 12.8 12.8 12.8zm-288 0h38.4c6.4 0 12.8-6.4 12.8-12.8v-70.4c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v70.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V108.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v198.4c0 6.4 6.4 12.8 12.8 12.8zM496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"></path></svg>
+                <svg className="text-[266px] text-white" stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M332.8 320h38.4c6.4 0 12.8-6.4 12.8-12.8V172.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v134.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V76.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v230.4c0 6.4 6.4 12.8 12.8 12.8zm-288 0h38.4c6.4 0 12.8-6.4 12.8-12.8v-70.4c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v70.4c0 6.4 6.4 12.8 12.8 12.8zm96 0h38.4c6.4 0 12.8-6.4 12.8-12.8V108.8c0-6.4-6.4-12.8-12.8-12.8h-38.4c-6.4 0-12.8 6.4-12.8 12.8v198.4c0 6.4 6.4 12.8 12.8 12.8zM496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"></path></svg>
               </div>
             </div>
 
-            <div className="w-full px-4 lg:w-1/2">
-              <SectionTitle
+            <div className="w-full px-4 lg:w-2/3">
+              <SectionTitleFull
                 title="Khám phá ngay sức mạnh của Smartwork - phần mềm quản lí doanh nghiệp thông minh và toàn diện"
                 paragraph="Giúp doanh nghiệp quản lý các hoạt động của mình một cách hiệu quả và tiết kiệm thời gian. Ngoài ra, SmartWork còn cung cấp giao diện thân thiện và dễ sử dụng, giúp người dùng dễ dàng tương tác và thực hiện các tác vụ quản lí doanh nghiệp một cách nhanh chóng và chính xác."
                 mb="44px"
+                textHeading="text-white"
+                textParams="text-white"
               />
 
-              <div className="text-base !leading-relaxed text-body-color md:text-lg">
-              <div className="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+              <div className="text-base !leading-relaxed text-body-color mt-[50px]">
+                <div className="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                   <Link
                     href="#"
                     className="rounded-md bg-[green] py-4 px-8 text-base font-semibold text-white duration-300 ease-in-out hover:bg-[green]/80"

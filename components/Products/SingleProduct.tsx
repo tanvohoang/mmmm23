@@ -12,11 +12,11 @@ const SingleProduct = ({ product }: any) => {
           <Image
             alt=""
             src={product.image.props.src}
-            className="aspect-square w-full"
-            width={500}
+            className="aspect-[1.5] w-full object-cover"
+            width={384}
           />
         </div>
-        <h3 className="mb-5 text-xl font-bold text-black dark:text-white sm:text-2xl lg:text-xl xl:text-2xl">
+        <h3 className="mb-5 text-center font-bold text-black dark:text-white">
           {product.title}
         </h3>
       </div>

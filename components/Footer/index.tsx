@@ -31,7 +31,7 @@ const Footer = () => {
                     height={30}
                   />
                 </Link>
-                <ul className="mb-[30px] text-base font-medium leading-relaxed text-body-color">
+                <ul className="mb-[30px] text-base font-medium leading-relaxed ">
                   <li className="mb-[5px]">
                     <span className="mr-[7px]">Email:</span>
                     <a href="mailto: info@3i.com.vn" className="inline-block">info@3i.com.vn</a>
@@ -45,7 +45,7 @@ const Footer = () => {
                     <a href="mailto: (+84) 0904322883" className="inline-block">(+84) 0904322883</a>
                   </li>
                 </ul>
-                <ul className="mb-9 text-base font-medium leading-relaxed text-body-color">
+                <ul className="mb-9 text-base font-medium leading-relaxed ">
                   <li className="mb-[15px]">
                     <span className="mb-[5px] text-[1rem] font-bold text-black dark:text-white">HÀ NỘI (HEADQUARTER):</span>
                     <span className="inline-block">Nhà B1-4 Khu đô thị Hạ Đình - Thanh Xuân - Hà Nội</span>
@@ -125,7 +125,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                      className="mb-4 inline-block text-base font-medium  hover:text-primary"
                     >
                       {" "}
                       Trang chủ{" "}
@@ -134,7 +134,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                      className="mb-4 inline-block text-base font-medium  hover:text-primary"
                     >
                       {" "}
                       Tuyển dụng{" "}
@@ -143,7 +143,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                      className="mb-4 inline-block text-base font-medium  hover:text-primary"
                     >
                       {" "}
                       Liên hệ{" "}
@@ -162,7 +162,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                      className="mb-4 inline-block text-base font-medium  hover:text-primary"
                     >
                       {" "}
                       Sản phẩm{" "}
@@ -171,7 +171,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                      className="mb-4 inline-block text-base font-medium  hover:text-primary"
                     >
                       {" "}
                       Dịch vụ{" "}
@@ -180,7 +180,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                      className="mb-4 inline-block text-base font-medium  hover:text-primary"
                     >
                       {" "}
                       Công nghệ{" "}
@@ -199,7 +199,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                      className="mb-4 inline-block text-base font-medium  hover:text-primary"
                     >
                       {" "}
                       Hỗ trợ kĩ thuật{" "}
@@ -208,7 +208,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                      className="mb-4 inline-block text-base font-medium  hover:text-primary"
                     >
                       {" "}
                       Điều khoản sử dụng{" "}
@@ -217,7 +217,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/"
-                      className="mb-4 inline-block text-base font-medium text-body-color hover:text-primary"
+                      className="mb-4 inline-block text-base font-medium  hover:text-primary"
                     >
                       {" "}
                       Giới thiệu{" "}
@@ -230,7 +230,7 @@ const Footer = () => {
         </div>
         <div className="bg-[green]/10 py-8">
           <div className="container">
-            <p className="text-center text-base text-body-color dark:text-white">
+            <p className="text-center text-base  dark:text-white">
               © Copyright { getCurrentYear() } 3I. All right reserved
             </p>
           </div>

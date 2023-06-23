@@ -1,38 +1,50 @@
+"use client";
 import Link from "next/link";
+import Image from "next/image";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import "swiper/css";
+
+import imagesData from "@/components/Hero/imagesData"
 
 const Hero = () => {
   return (
     <>
       <section
         id="home"
-        className="relative z-10 overflow-hidden pt-[120px] pb-16 md:pt-[150px] md:pb-[120px] xl:pt-[180px] xl:pb-[160px] 2xl:pt-[210px] 2xl:pb-[200px]"
+        className="relative z-10 overflow-hidden pt-[120px] pb-16 md:pt-[60px] md:pb-[50px] xl:pt-[60px] xl:pb-[60px] 2xl:pt-[80px] 2xl:pb-[80px]"
       >
         <div className="container">
-          <div className="-mx-4 flex flex-wrap">
-            <div className="w-full px-4">
-              <div
-                className="wow fadeInUp mx-auto max-w-[800px] text-center"
-                data-wow-delay=".2s"
-              >
-                <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                Công ty TNHH 1 thành viên công nghệ và truyền thông 3i                </h1>
-                <p className="mb-12 text-base font-medium !leading-relaxed text-body-color dark:text-white dark:opacity-90 sm:text-lg md:text-xl">
+          <div className="-mx-4 flex flex-wrap items-center">
+            <div className="px-4 lg:w-3/5">
+              <div className="wow fadeInUp" data-wow-delay=".2s">
+                <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:leading-tight">
+                Công ty TNHH 1 thành viên công nghệ và truyền thông 3i</h1>
+                <p className="mb-12 text-base font-medium !leading-relaxed text-body-color dark:text-white dark:opacity-90">
                 3i được sáng lập với lý tưởng vận dụng sức sáng tạo của con người về măt công nghệ để phục vụ xã hội những sản phẩm và giải pháp mang tính trí tuệ và hiệu quả cao trong cuộc sống.                </p>
                 <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                  {/* <Link
-                    href="https://nextjstemplates.com/templates/saas-starter-startup"
-                    className="rounded-md bg-[green] py-4 px-8 text-base font-semibold text-white duration-300 ease-in-out hover:bg-[green]/80"
-                  >
-                   🔥 Get Pro
-                  </Link>
-                  <Link
-                    href="https://github.com/NextJSTemplates/startup-nextjs"
-                    className="rounded-md bg-black/20 py-4 px-8 text-base font-semibold text-black duration-300 ease-in-out hover:bg-black/30 dark:bg-white/20 dark:text-white dark:hover:bg-white/30"
-                  >
-                    Star on GitHub
-                  </Link> */}
                 </div>
               </div>
+            </div>
+            <div className="px-4 lg:w-2/5">
+            <Swiper
+              spaceBetween={0}
+              slidesPerView={1}
+              onSwiper={(swiper) => console.log(swiper)}
+              onSlideChange={() => console.log('slide change')}
+              effect={"fade"}
+              autoplay={{delay: 300}}
+            >
+              {imagesData.map((item, index) => (
+                  <SwiperSlide key={index} >
+                    <Image
+                      alt=""
+                      src={item.image.props.src}
+                      className="aspect-square w-full"
+                      width={1000}
+                    />
+                  </SwiperSlide>
+              ))}
+            </Swiper>
             </div>
           </div>
         </div>

@@ -20,9 +20,6 @@ const ServiceItemPage = (params) => {
     DataServices();
   }, []);
 
-  // const ServiceItem = data.data;
-  console.log(data && data?.status);
-
   return (
     <>
       <Breadcrumb

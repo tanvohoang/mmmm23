@@ -8,7 +8,8 @@ import { GetMenuData } from "../../app/apis/GetDataHome";
 import { handleItemNavBar } from "../../app/utils/util";
 
 const Header = () => {
-  const [data, setData] = useState([]);
+  const [data,setData]=useState([])
+
 
   const setdata = async () => {
     try {
@@ -18,6 +19,11 @@ const Header = () => {
       console.log(error);
     }
   };
+
+  // const data = async ()=> {
+  //   return await GetMenuData();
+  // };
+  console.log(data);
 
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -54,13 +60,13 @@ const Header = () => {
       <header
         className={`header top-0 left-0 z-40 flex w-full items-center bg-transparent ${
           sticky
-            ? "!fixed !z-[9999] !bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm !transition dark:!bg-primary dark:!bg-opacity-20"
+            ? "!fixed !z-[9999] !bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm !transition dark:!bg-[green] dark:!bg-opacity-20"
             : "absolute"
         }`}
       >
         <div className="container">
           <div className="relative -mx-4 flex items-center justify-between">
-            <div className="w-60 max-w-full px-4 xl:mr-12">
+            <div className="w-[300px] max-w-full px-4">
               <Link
                 href="/"
                 className={`header-logo block w-full ${
@@ -68,10 +74,10 @@ const Header = () => {
                 } `}
               >
                 <Image
-                  src="/images/logo/logo-2.svg"
+                  src="/images/logo/logo.png"
                   alt="logo"
-                  width={140}
-                  height={30}
+                  width={300}
+                  height={48}
                   className="w-full dark:hidden"
                 />
                 <Image
@@ -189,7 +195,7 @@ const Header = () => {
                 </Link>
                 <Link
                   href="/signup"
-                  className="ease-in-up hidden rounded-md bg-primary py-3 px-8 text-base font-bold text-white transition duration-300 hover:bg-opacity-90 hover:shadow-signUp md:block md:px-9 lg:px-6 xl:px-9"
+                  className="ease-in-up hidden rounded-md bg-[green] py-3 px-8 text-base font-bold text-white transition duration-300 hover:bg-opacity-90 hover:shadow-signUp md:block md:px-9 lg:px-6 xl:px-9"
                 >
                   Sign Up
                 </Link>

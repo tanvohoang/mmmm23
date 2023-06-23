@@ -14,25 +14,9 @@ import Dv6 from'../../public/images/services/dv6.svg';
 import Dv7 from'../../public/images/services/app-development_638cc82b.svg';
 import Dv8 from'../../public/images/services/dv8.svg'
 
-
-
-
-
-
-
-
 const  Features = () => {
-
-
-  // const {data}=useQuery({
-  //   queryKey:['List_services'],
-  //   queryFn:()=>GetMenuData()
-  // })
-
-
-
   const data={
-    title:'DỊCH VỤ',
+    title:'Dịch vụ',
     to:'services',
     children:[
         {
@@ -94,13 +78,13 @@ const  Features = () => {
     <>
       <section
         id="features"
-        className="bg-[green]/[.03] py-16 md:py-20 lg:py-28"
+        className="bg-[green]/[.03] py-16"
       >
         
         <div className="container">
           <SectionTitle
             title={ data.title}
-            paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+            paragraph=""
             center
           />
 

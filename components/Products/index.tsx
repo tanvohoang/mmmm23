@@ -14,8 +14,8 @@ import productsData from "@/components/Products/productsData";
 export default function Products() {
   return (
     <section
-        id="features"
-        className="bg-[green]/[.03] py-16 md:py-20 lg:py-28"
+        id="products"
+        className="bg-[green]/[.03] py-16"
       >
         <div className="container">
           <SectionTitle
@@ -26,7 +26,7 @@ export default function Products() {
           <Swiper
         modules={[Navigation, A11y]}
         spaceBetween={30}
-        slidesPerView={3}
+        slidesPerView={4}
         navigation
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}

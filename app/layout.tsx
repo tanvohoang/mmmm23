@@ -1,4 +1,3 @@
-"use client";
 
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -31,14 +30,14 @@ export default function RootLayout({
       {/* <head /> */}
 
       <body className="dark:bg-black">
-        <QueryClientProvider client={queryClient}>
+        {/* <QueryClientProvider client={queryClient}> */}
           <Providers>
             <Header />
             {children}
             <Footer />
             <ScrollToTop />
           </Providers>
-        </QueryClientProvider>
+        {/* </QueryClientProvider> */}
       </body>
     </html>
   );

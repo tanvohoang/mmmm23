@@ -9,12 +9,27 @@ import { useQuery } from "@tanstack/react-query";
 import { handleItemNavBar } from "../../app/utils/util";
 
 const Header = () => {
-  const { data } = useQuery({
-    queryKey: ["List_Menu"],
-    queryFn: () => GetMenuData(),
-  });
+  // const { data } = useQuery({
+  //   queryKey: ["List_Menu"],
+  //   queryFn: () => GetMenuData(),
+  // });
 
-  console.log(data?.data);
+  const [data,setData]=useState([])
+
+
+  const setdata = async () => {
+    try {
+      const res = await GetMenuData();
+      setData(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // const data = async ()=> {
+  //   return await GetMenuData();
+  // };
+  console.log(data);
 
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -32,8 +47,15 @@ const Header = () => {
     }
   };
   useEffect(() => {
+    // fetch('https://backend.smartwork.3i.com.vn/HomePage/GetMainMenu')
+    // .then((res) => res.json())
+    // .then((data) => {
+
+    //   setData(data)
+    // })
+    setdata()
     window.addEventListener("scroll", handleStickyNavbar);
-  });
+  }, []);
 
   // submenu handler
   const [openIndex, setOpenIndex] = useState(-1);
@@ -112,7 +134,7 @@ const Header = () => {
                   }`}
                 >
                   <ul className="block lg:flex lg:space-x-12">
-                    {data?.data.map((menuItem, index) => (
+                    {data.map((menuItem, index) => (
                       <li key={menuItem.id} className="group relative">
                         {menuItem.title ? (
                           <>

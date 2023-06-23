@@ -1,11 +1,11 @@
 import React from 'react'
-import {GetAbouct} from'../../../app/apis/GetDataHome'
+import {GetAbout} from'../../../app/apis/GetDataHome'
 import Breadcrumb from "@/components/Common/Breadcrumb";
 
 
 export default async function  Careers({params}:any) {
 
-  const data= await GetAbouct(params.id)
+  const data= await GetAbout(params.id)
 
 
   console.log(params.id)

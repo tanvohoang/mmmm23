@@ -1,5 +1,5 @@
 import React from "react";
-import { GetAbouct } from "../../apis/GetDataHome";
+import { GetAbout } from "../../apis/GetDataHome";
 import { ResolvingMetadata, type Metadata } from "next";
 import Head from "next/head";
 import AboutSectionOne from "@/components/About/AboutSectionOne";
@@ -29,7 +29,7 @@ export async function generateMetadata(
 }
 
 export default async function page({params,searchParams}:Props) {
-    const data= await GetAbouct( Number( params.id))
+    const data= await GetAbout( Number( params.id))
 
     console.log(data)
   return (

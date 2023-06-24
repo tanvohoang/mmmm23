@@ -27,7 +27,7 @@ export async function generateMetadata(
     title:product?.data?.title,
     description:product?.data?.short_content,
     openGraph: {
-      images: [getImg(product?.data?.gallery), ...previousImages],
+      images: [`${getImg(product?.data?.gallery)}`, ...previousImages],
     },
   };
 }

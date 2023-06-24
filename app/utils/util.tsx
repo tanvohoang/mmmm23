@@ -13,5 +13,5 @@ export const getCurrentYear = () => {
 
 
 export const getImg=(value:string)=>{
-    return `https://backend.smartwork.3i.com.vn${value}`
+    return `https://backend.smartwork.3i.com.vn/${value}`
 }

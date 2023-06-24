@@ -2,7 +2,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import "swiper/css";
+import { Autoplay } from "swiper";
+import "swiper/swiper.min.css";
 
 import imagesData from "@/components/Hero/imagesData"
 
@@ -11,7 +12,7 @@ const Hero = () => {
     <>
       <section
         id="home"
-        className="relative z-10 overflow-hidden pt-[120px] pb-16 md:pt-[60px] md:pb-[50px] xl:pt-[60px] xl:pb-[60px] 2xl:pt-[80px] 2xl:pb-[80px]"
+        className="relative z-10 overflow-hidden pt-[150px] pb-16 md:pt-[150px] md:pb-[50px] xl:pt-[60px] xl:pb-[60px] 2xl:pt-[80px] 2xl:pb-[80px]"
       >
         <div className="container">
           <div className="-mx-4 flex flex-wrap items-center">
@@ -26,25 +27,28 @@ const Hero = () => {
               </div>
             </div>
             <div className="px-4 lg:w-2/5">
-            <Swiper
-              spaceBetween={0}
-              slidesPerView={1}
-              onSwiper={(swiper) => console.log(swiper)}
-              onSlideChange={() => console.log('slide change')}
-              effect={"fade"}
-              autoplay={{delay: 300}}
-            >
-              {imagesData.map((item, index) => (
-                  <SwiperSlide key={index} >
-                    <Image
-                      alt=""
-                      src={item.image.props.src}
-                      className="aspect-square w-full"
-                      width={1000}
-                    />
-                  </SwiperSlide>
-              ))}
-            </Swiper>
+              <Swiper
+                modules={[Autoplay]}
+                spaceBetween={0}
+                slidesPerView={1}
+                onSwiper={(swiper) => console.log(swiper)}
+                onSlideChange={() => console.log('slide change')}
+                effect={"fade"}
+                autoplay={{delay: 3000}}
+                loop={true}
+                className="w-full"
+              >
+                {imagesData.map((item, index) => (
+                    <SwiperSlide key={index} >
+                      <Image
+                        alt=""
+                        src={item.image.props.src}
+                        className="aspect-square w-full"
+                        width={1000}
+                      />
+                    </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
           </div>
         </div>

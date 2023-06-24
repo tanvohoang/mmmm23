@@ -2,8 +2,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { BsChevronDown } from "react-icons/bs";
+
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
+import menuMobileBg from "@/public/images/menu/map_menu.jpg"
+
 import { GetMenuData } from "../../app/apis/GetDataHome";
 import { handleItemNavBar } from "../../app/utils/util";
 
@@ -25,6 +29,11 @@ const Header = () => {
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
   };
+
+  const [userClose, setUserClose] = useState(false);
+  const userToggleHandler = () => {
+    setUserClose(!userClose);
+  }
 
   // Sticky Navbar
   const [sticky, setSticky] = useState(false);
@@ -59,20 +68,42 @@ const Header = () => {
             : "absolute"
         }`}
       >
-        <div className="container">
+        <div className="w-full px-[20px]">
           <div className="relative -mx-4 flex items-center justify-between">
-            <div className="w-[300px] max-w-full px-4">
+            <button
+              onClick={navbarToggleHandler}
+              id="navbarToggler"
+              aria-label="Mobile Menu"
+              className="inline-block rounded-lg px-3 py-[6px] ring-[green] focus:ring-2 xl:hidden"
+            >
+              <span
+                className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
+                  navbarOpen ? " top-[7px] rotate-45" : " "
+                }`}
+              />
+              <span
+                className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
+                  navbarOpen ? "opacity-0 " : " "
+                }`}
+              />
+              <span
+                className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
+                  navbarOpen ? " top-[-8px] -rotate-45" : " "
+                }`}
+              />
+            </button>
+            <div className="w-[350px] md:w-[300px] max-w-full px-4 xl:mr-[30px]">
               <Link
                 href="/"
-                className={`header-logo block w-full ${
-                  sticky ? "py-5 lg:py-2" : "py-8"
+                className={`header-logo inline-block w-full ${
+                  sticky ? "py-5 lg:py-2" : "py-[10px] xl:py-8"
                 } `}
               >
                 <Image
                   src="/images/logo/logo.png"
                   alt="logo"
-                  width={300}
-                  height={48}
+                  width={350}
+                  height={49}
                   className="w-full dark:hidden"
                 />
                 <Image
@@ -84,55 +115,34 @@ const Header = () => {
                 />
               </Link>
             </div>
-            <div className="flex w-full items-center justify-between px-4">
+            <div className="flex xl:flex-1 items-center justify-between px-4">
               <div>
-                <button
-                  onClick={navbarToggleHandler}
-                  id="navbarToggler"
-                  aria-label="Mobile Menu"
-                  className="absolute right-4 top-1/2 block translate-y-[-50%] rounded-lg px-3 py-[6px] ring-primary focus:ring-2 lg:hidden"
-                >
-                  <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                      navbarOpen ? " top-[7px] rotate-45" : " "
-                    }`}
-                  />
-                  <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                      navbarOpen ? "opacity-0 " : " "
-                    }`}
-                  />
-                  <span
-                    className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                      navbarOpen ? " top-[-8px] -rotate-45" : " "
-                    }`}
-                  />
-                </button>
                 <nav
                   id="navbarCollapse"
-                  className={`navbar absolute right-0 z-30 w-[250px] rounded border-[.5px] border-body-color/50 bg-white py-4 px-6 duration-300 dark:border-body-color/20 dark:bg-dark lg:visible lg:static lg:w-auto lg:border-none lg:!bg-transparent lg:p-0 lg:opacity-100 ${
+                  className={`bg-nav-mobile xl:bg-none navbar fixed top-[80px] md:top-[90px] lg:top-[150px] right-0 bottom-0 z-30 ease border-body-color/50 bg-white py-4 px-6 duration-300 dark:border-body-color/20 dark:bg-dark xl:visible xl:static xl:w-auto xl:border-none xl:!bg-transparent xl:p-0 xl:opacity-100 ${
                     navbarOpen
-                      ? "visibility top-full opacity-100"
-                      : "invisible top-[120%] opacity-0"
+                      ? "visibility left-[0] opacity-100"
+                      : "invisible left-[-100%] opacity-0"
                   }`}
                 >
-                  <ul className="block lg:flex lg:space-x-12">
+                  <ul className="block xl:flex items-center xl:space-x-[20px]">
                     {data.map((menuItem, index) => (
                       <li key={menuItem.id} className="group relative">
                         {menuItem.title ? (
                           <>
                             {menuItem?.children.length > 0 ? (
-                              <p
-                                className={`flex py-2 text-base text-dark group-hover:opacity-70 dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0`}
+                              <span
+                                className={`flex items-center py-2 text-[12px] 2xl:text-base text-white xl:text-dark group-hover:text-[green] cursor-pointer uppercase font-bold dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0`}
                               >
                                 {menuItem.title}
-                              </p>
+                                <BsChevronDown className="ml-[7px] text-[10px] font-bold hidden xl:block"/>
+                              </span>
                             ) : (
                               <Link
                                 href={`/${handleItemNavBar(
                                   menuItem.multiple_language
                                 )}`}
-                                className={`flex py-2 text-base text-dark group-hover:opacity-70 dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 pointer`}
+                                className={`flex py-2 text-[12px] 2xl:text-base text-white xl:text-dark group-hover:text-[green] cursor-pointer uppercase font-bold dark:text-white lg:mr-0 lg:inline-flex lg:py-6 lg:px-0 pointer`}
                               >
                                 {menuItem.title}
                               </Link>
@@ -150,7 +160,7 @@ const Header = () => {
                                       menuItem.multiple_language
                                     )}/${submenuItem.first_id === -1 ?String(submenuItem.id): String(submenuItem.first_id)}`}
                                     key={submenuItem.id}
-                                    className="block rounded py-2.5 text-sm text-dark hover:opacity-70 dark:text-white lg:px-3"
+                                    className="block rounded py-2.5 text-sm text-dark hover:text-[green] font-semibold dark:text-white lg:px-3"
                                   >
                                     {submenuItem.title}
                                   </Link>
@@ -181,21 +191,29 @@ const Header = () => {
                   </ul>
                 </nav>
               </div>
-              <div className="flex items-center justify-end pr-16 lg:pr-0">
-                <Link
-                  href="/signin"
-                  className="hidden py-3 px-7 text-base font-bold text-dark hover:opacity-70 dark:text-white md:block"
-                >
-                  Sign In
-                </Link>
-                <Link
-                  href="/signup"
-                  className="ease-in-up hidden rounded-md bg-[green] py-3 px-8 text-base font-bold text-white transition duration-300 hover:bg-opacity-90 hover:shadow-signUp md:block md:px-9 lg:px-6 xl:px-9"
-                >
-                  Sign Up
-                </Link>
+              <div className="flex items-center justify-end">
+                <button
+                  onClick={userToggleHandler}
+                  id="navbarToggler"
+                  aria-label="Mobile Menu"
+                  className="block text-[green] 2xl:hidden"
+                ><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" className="text-[30px]" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zm0 8a3 3 0 1 1 3-3 3 3 0 0 1-3 3zm9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z"></path></svg></button>
+                <div className={`absolute top-full right-0 p-[15px] opacity-0 transition ease duration-300 shadow-lg rounded-md bg-[white] 2xl:static 2xl:bg-[transparent] 2xl:shadow-none 2xl:p-0 2xl:flex 2xl:opacity-100 ${userClose?" opacity-100":""}`}>
+                  <Link
+                    href="/signin"
+                    className="hidden py-3 px-7 text-base text-center font-bold text-dark hover:text-[green] dark:text-white md:block"
+                  >
+                    Đăng ký
+                  </Link>
+                  <Link
+                    href="/signup"
+                    className="ease-in-up hidden rounded-md bg-[green] py-3 px-8 text-base font-bold text-white transition duration-300 hover:bg-opacity-90 hover:shadow-signUp md:block md:px-9 lg:px-6 xl:px-9"
+                  >
+                    Đăng nhập
+                  </Link>
+                </div>
                 <div>
-                  <ThemeToggler />
+                  {/* <ThemeToggler /> */}
                 </div>
               </div>
             </div>

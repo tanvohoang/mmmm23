@@ -3,8 +3,7 @@
 import { Navigation, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';
+import "swiper/css/autoplay";
 
 import SectionTitle from "../Common/SectionTitle";
 import SingleProduct from "@/components//Products/SingleProduct";
@@ -31,6 +30,18 @@ export default function Products() {
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={() => console.log('slide change')}
         autoplay={true}
+        className='swiper-container'
+        breakpoints={{
+          576: {
+            slidesPerView: 1,
+          },
+          768: {
+            slidesPerView: 2
+          },
+          1479: {
+            slidesPerView: 3
+          }
+        }}
       >
         {productsData.map((item, index) => (
             <SwiperSlide key={index} >

@@ -35,9 +35,10 @@ module.exports = {
       // => @media (min-width: 992px) { ... }
 
       xl: "1200px",
+      xl_p1: "1201px",
       // => @media (min-width: 1200px) { ... }
 
-      "2xl": "1400px",
+      "2xl": "1519px",
       // => @media (min-width: 1400px) { ... }
     },
     extend: {
@@ -46,6 +47,9 @@ module.exports = {
         one: "0px 2px 3px rgba(7, 7, 77, 0.05)",
         sticky: "inset 0 -1px 0 0 rgba(0, 0, 0, 0.1)",
       },
+      backgroundImage: {
+        'nav-mobile': "url('/images/menu/map_menu.jpg')",
+      }
     },
   },
   plugins: [],

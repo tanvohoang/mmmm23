@@ -27,13 +27,12 @@ export async function generateMetadata(
     title:product?.data?.title,
     description:product?.data?.short_content,
     openGraph: {
-      images: [getImg(product?.data?.gallery), ...previousImages],
+      images: [`${getImg(product?.data?.gallery)}`, ...previousImages],
     },
   };
 }
 export default async function page({ params, searchParams }: Props) {
   const data = await GetAbout(Number(params.id));
-  console.log(data.data.content)
   return (
     <>
       <Head>

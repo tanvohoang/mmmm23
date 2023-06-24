@@ -1,16 +1,23 @@
 import Link from "next/link";
-import classNames from "classnames";
+import Image from "next/image";
 
-const ProductIntro = ({
+
+const Introduction = ({
 pageName,
 description,
-renderHTML,
-classitem
+showLink = true,
+intoLink= "#",
+quoteLink= "/Contact",
+metaImage= ""
 }: {
 pageName: string;
 description?: string;
 renderHTML?:string;
-classitem?:string
+imageWidth?: string;
+showLink?: boolean;
+intoLink?: string;
+quoteLink?: string;
+metaImage?: string;
 }) => {
 return (
     <>
@@ -19,35 +26,37 @@ return (
 
         <div className="container">
         <div className="-mx-4 flex flex-wrap items-center">
-            <div className="w-full px-4 md:w-8/12 lg:w-7/12">
-            <div className=" max-w-[570px] md:mb-0 ">
-                <h1 className=" text-2xl font-bold text-black dark:text-white sm:text-3xl">
-                {pageName}
-                </h1>
-                <p className="text-base font-medium leading-relaxed text-body-color">
-                {description}
-                </p>
-            
+            <div className="w-full px-4 md:w-8/12 lg:w-8/12">
+                <div className=" max-w-[570px] md:mb-0 ">
+                    <h1 className=" text-2xl font-bold text-black dark:text-white sm:text-3xl">{pageName}</h1>
+                    <p className="text-base font-medium leading-relaxed text-body-color">{description}</p>
+                    {showLink &&
+                        <div className="text-base !leading-relaxed text-body-color mt-[50px]">
+                            <div className="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+                            <Link
+                                href={intoLink}
+                                className="rounded-md bg-[green] py-4 px-8 text-base font-semibold text-white duration-300 ease-in-out hover:bg-[green]/80"
+                            >
+                                Giới thiệu
+                            </Link>
+                            <Link
+                                href={quoteLink}
+                                className="rounded-md bg-black/20 py-4 px-8 text-base font-semibold text-black duration-300 ease-in-out hover:bg-black/30 dark:bg-white/20 dark:text-white dark:hover:bg-white/30"
+                            >
+                                Bảng giá
+                            </Link>
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
-            
-            </div>
-            <div className="w-full px-4 md:w-4/12 lg:w-5/12">
-            <div className="text-end">
-                <ul className="flex items-center md:justify-end">
-                <li className="flex items-center">
-                    <Link
-                    href="/"
-                    className="pr-1 text-base font-medium text-body-color hover:text-primary"
-                    >
-                    Home
-                    </Link>
-                    <span className="mr-3 block h-2 w-2 rotate-45 border-t-2 border-r-2 border-body-color"></span>
-                </li>
-                <li className="text-base font-medium text-primary">
-                    {pageName}
-                </li>
-                </ul>
-            </div>
+            <div className="w-full px-4 md:w-4/12 lg:w-4/12">
+                <Image
+                    alt="Picture of the author"
+                    width={500}
+                    height={500}
+                    src={metaImage}
+                />
             </div>
         </div>
         </div>
@@ -127,11 +136,9 @@ return (
         </span>
         </div>
         </div>
-
-        {renderHTML && <div className={`container ${classitem ? classitem : 'mt-36'}  font-mono-san`}  dangerouslySetInnerHTML={{ __html: renderHTML }}></div>}
     </section>
     </>
 );
 };
 
-export default ProductIntro;
+export default Introduction;

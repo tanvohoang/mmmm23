@@ -21,15 +21,15 @@ metaImage?: string;
 }) => {
 return (
     <>
-    <section className="relative z-10 overflow-hidden pt-28 lg:pt-[150px]">
+    <section id="introduction" className="relative z-10 overflow-hidden py-10 mt-28 lg:mt-[113px] bg-[linear-gradient(45deg,_#53b700,_#00c1bf)] dark:bg-none">
         <div className="flex items-center">
 
         <div className="container">
         <div className="-mx-4 flex flex-wrap items-center">
             <div className="w-full px-4 md:w-8/12 lg:w-8/12">
                 <div className=" max-w-[570px] md:mb-0 ">
-                    <h1 className=" text-2xl font-bold text-black dark:text-white sm:text-3xl">{pageName}</h1>
-                    <p className="text-base font-medium leading-relaxed text-body-color">{description}</p>
+                    <h1 className=" text-2xl font-bold text-white sm:text-3xl">{pageName}</h1>
+                    <p className="text-base font-medium leading-relaxed text-white">{description}</p>
                     {showLink &&
                         <div className="text-base !leading-relaxed text-body-color mt-[50px]">
                             <div className="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">

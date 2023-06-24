@@ -15,23 +15,22 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({
+export default function Careers({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head />
+    <div>
 
-      <body>
-        <ClientOnly>
+        {/* <ClientOnly> */}
 
-        <Header />
+        {/* <Header /> */}
         {children}
-        <Footer />
-        </ClientOnly>
-      </body>
-    </html>
+        {/* <Footer /> */}
+        {/* </ClientOnly> */}
+ 
+    </div>
+  
   );
 }

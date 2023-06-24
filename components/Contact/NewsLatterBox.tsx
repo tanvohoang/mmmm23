@@ -1,10 +1,68 @@
+"use client";
+
+import React, { useContext, useRef, useState, useMemo } from "react";
+
 const NewsLatterBox = () => {
+  // const [file, setFile] = useState<File>()
+
+  const [image, setImage] = useState<File>();
+  const refInput = useRef<HTMLInputElement>(null);
+
+  // const handleFromValue = handleSubmit(async (data) => {
+  //   try {
+  //     let imageItemChange = avatar
+  //     if (file) {
+  //       const imageItem = new FormData()
+  //       imageItem.append('image', file)
+  //       const res = await upLoadAvatar.mutateAsync(imageItem)
+  //       imageItemChange = res.data.data
+  //     }
+  //     const res = await mutation.mutateAsync({
+  //       ...data,
+  //       date_of_birth: data.date_of_birth?.toISOString(),
+  //       avatar: imageItemChange
+  //     })
+  //     setProfileUser(res.data.data as user)
+  //     setProfile(res.data.data as user)
+  //     refetch()
+  //   } catch (error) {
+  //     if (axiosError<resPonseApi<FromDataError>>(error) && error.response?.status === 422) {
+  //       const fromError = error.response.data.data
+  //       if (fromError) {
+  //         Object.keys(fromError).forEach((key) =>
+  //           setError(key as keyof FromDataError, {
+  //             type: 'server',
+  //             message: fromError[key as keyof FromDataError]
+  //           })
+  //         )
+  //       }
+  //     }
+  //   }
+  // })
+
+  const handleImage = () => {
+    refInput.current?.click();
+  };
+  const handleChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const InputFileItem = e.target.files?.[0];
+    if (
+      InputFileItem &&
+      (InputFileItem.size >= 1048576 ||
+        !InputFileItem.type.includes("image/jpeg"))
+    ) {
+      ("loi");
+    } else {
+      setImage(InputFileItem);
+      // onChange(InputFileItem as File);
+    }
+  };
+
   return (
     <div
       className="wow fadeInUp relative z-10 rounded-md bg-[green]/[3%] p-8 dark:bg-[green]/10 sm:p-11 lg:p-8 xl:p-11"
       data-wow-delay=".2s"
     >
-      <h3 className="mb-4 text-2xl font-bold leading-tight text-black dark:text-white">
+      <h3 className=" text-2xl font-bold leading-tight text-black dark:text-white">
         Đăng ký nhận tư vấn, yêu cầu cài đặt Smartwork
       </h3>
       <p className="mb-11 border-b border-body-color border-opacity-25 pb-11 text-base font-medium leading-relaxed text-body-color dark:border-white dark:border-opacity-25">
@@ -14,22 +72,71 @@ const NewsLatterBox = () => {
         <input
           type="text"
           name="name"
-          placeholder="Họ và tên"
+          placeholder="Tên Công Ty"
           className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
         />
         <input
           type="email"
           name="email"
-          placeholder="Địa chỉ email"
+          placeholder="Địa Chỉ Email"
           className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
         />
+        <input
+          type="text"
+          name="Địa Chỉ Công Ty"
+          placeholder="Địa Chỉ Công Ty"
+          className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
+        />
+        <input
+          type="number"
+          name="Số Điện Thoại"
+          placeholder="Số Điện Thoại"
+          className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
+        />
+        <input
+          type="text"
+          name="Ghi Chú"
+          placeholder="Ghi Chú"
+          className="mb-4 w-full rounded-md border border-body-color border-opacity-10 py-3 px-6 text-base font-medium text-body-color placeholder-body-color outline-none focus:border-primary focus:border-opacity-100 focus-visible:shadow-none dark:border-white dark:border-opacity-10 dark:bg-[#242B51] focus:dark:border-opacity-50"
+        />
+        <div className="flex justify-between">
+          <input
+            ref={refInput}
+            type="file"
+            className="hidden"
+            accept=".jpg,.jeq,.png"
+            onChange={handleChangeImage}
+          />
+          <button
+            onClick={handleImage}
+            type="button"
+            className="duration-80 mb-4 w-[47%] cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
+          >
+            Tải lên cấu chúc công ty
+          </button>
+          <input
+            ref={refInput}
+            type="file"
+            className="hidden"
+            accept=".jpg,.jeq,.png"
+            onChange={handleChangeImage}
+          />
+          <button
+            onClick={handleImage}
+            type="button"
+            className="duration-80 mb-4  w-[47%] cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
+          >
+            Tải lên nghiệp vụ công
+          </button>
+        </div>
         <input
           type="submit"
           value="Subscribe"
           className="duration-80 mb-4 w-full cursor-pointer rounded-md border border-transparent bg-[green] py-3 px-6 text-center text-base font-medium text-white outline-none transition ease-in-out hover:bg-opacity-80 hover:shadow-signUp focus-visible:shadow-none"
         />
         <p className="text-center text-base font-medium leading-relaxed text-body-color">
-          Đảm bảo không có thư rác, vì vậy vui lòng không gửi bất kỳ thư rác nào.
+          Đảm bảo không có thư rác, vì vậy vui lòng không gửi bất kỳ thư rác
+          nào.
         </p>
       </form>
       <div className="absolute top-0 left-0 z-[-1]">

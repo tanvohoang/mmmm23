@@ -1,4 +1,4 @@
-import Breadcrumb from "@/components/Common/Breadcrumb";
+import Introduction from "@/components/Common/Introduction";
 import { GetItemServices } from "@/app/apis/GetDataHome";
 import { ResolvingMetadata, type Metadata } from "next";
 import {GetAbout} from'../../apis/GetDataHome';
@@ -31,12 +31,13 @@ export async function generateMetadata(
 
 const ServiceItemPage = async({ params, searchParams }: Props) => {
   const serviceItem = await GetItemServices(params.id);
-  console.log("params: ", serviceItem);
   return (
     <>
-      <Breadcrumb
+      <Introduction
         pageName={serviceItem?.data?.title}
-        description=""
+        description={serviceItem?.data?.short_content}
+        metaImage={getImg(serviceItem?.data?.gallery)}
+        showLink={false}
       />
 
       <section id={`service-${params.id}`}>

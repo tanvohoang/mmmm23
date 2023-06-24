@@ -25,6 +25,7 @@ export async function generateMetadata(
   return {
     title: product?.data?.title,
     description: product?.data?.short_content,
+    
     openGraph: {
       images: [ `${getImg(product?.data?.gallery)}`, ...previousImages],
     },
